@@ -1,0 +1,36 @@
+{
+    "countries": [
+        {
+            "Code": "US",
+            "Name": "United States Of America"
+        },
+        {
+            "Code": "IN",
+            "Name": "India"
+        }
+    ],
+
+    "states":[
+        { 
+            "StateName" : "Alabama", 
+            "StateCode": "AL",
+            "CountryCode" : "US"
+        },
+        {
+            "StateName" : "Texas", 
+            "StateCode": "TX",
+            "CountryCode" : "US"
+
+        },
+        { 
+            "StateName" : "Andhra Pradesh", 
+            "StateCode": "AL",
+            "CountryCode" : "IN"
+        },
+        {
+            "StateName" : "Telangana", 
+            "StateCode": "TS",
+            "CountryCode" : "IN"
+        }
+    ]
+}

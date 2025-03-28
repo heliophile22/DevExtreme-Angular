@@ -1,0 +1,38 @@
+<div>
+  <dx-form [formData]="formData" (onFieldDataChanged) = "formFieldDataChanged($event)">
+    <dxi-item 
+      dataField="country"
+      editorType="dxSelectBox"
+      [editorOptions]="{
+        items: countries,
+        valueExpr: 'Code',
+        displayExpr: 'Name',
+      }"
+    ></dxi-item>
+
+    <dxi-item
+      dataField="state"
+      editorType="dxSelectBox"
+      [editorOptions]="{
+        items: states,
+        valueExpr: 'StateCode',
+        displayExpr: 'StateName',
+        disabled: !formData.country
+      }"
+    ></dxi-item>
+
+    <dxi-item>
+      <dx-button text="Display" type="default" (onClick)="handleButtonClick()"></dx-button>
+    </dxi-item>
+  </dx-form>
+  
+  <div *ngIf="selectedCountryName && selectedStateName">
+    You selected: Country = {{ selectedCountryName }} and State = {{ selectedStateName }}
+  </div>
+</div>
+
+
+    <!-- <dxi-item 
+      itemType="button" 
+      [buttonOptions]="buttonOptions"
+    ></dxi-item> -->

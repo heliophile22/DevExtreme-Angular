@@ -1,0 +1,21 @@
+<div>
+    <label for="country">Country</label>
+    <div class="input-group input-group-sm mb-3">
+        <select (change)="onSelect($event.target)" [(ngModel)]="selectedCountryCode">
+            <option value="">--Select Country--</option>
+            <option *ngFor="let country of countries" [value]="country.Code">{{ country.Name  }}</option>
+        </select>
+    </div>
+    <label for="state">State</label>
+    <div class="input-group input-group-sm mb-3">
+        <select [(ngModel)]="selectedStateCode">
+            <option value="">--Select State--</option>
+            <option *ngFor="let state of states" [value]="state.StateCode">{{ state.StateName }}</option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="handleButtonClick()">Save</button>
+</div>
+
+<div *ngIf="selectedCountry && selectedState">
+    You selected: Country = {{ selectedCountry.Name }} and State = {{ selectedState.StateName }}
+</div>
