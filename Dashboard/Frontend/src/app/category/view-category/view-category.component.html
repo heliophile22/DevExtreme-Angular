@@ -1,0 +1,12 @@
+<div class="form-container">
+    <dx-form [formData]="newCategory">
+        <dxi-item itemType="group" caption="Category Details">
+            <dxi-item dataField="name" [disabled]="true"></dxi-item>
+            <dxi-item dataField="description" [disabled]="true"></dxi-item>
+        </dxi-item>
+        <dxi-item>
+            <dx-button stylingMode="contained" text="Back" type="default" [width]="120" (click)="redirectToCategoryList()">
+            </dx-button>
+        </dxi-item>
+    </dx-form>
+</div>

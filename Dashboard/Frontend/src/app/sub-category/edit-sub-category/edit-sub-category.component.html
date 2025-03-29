@@ -1,0 +1,28 @@
+<div class="form-container">
+    <dx-form [formData]="newSubCategory">
+        <dxi-item itemType="group" caption="Edit Subcategory">
+            <dxi-item dataField="id" [disabled]="true"></dxi-item>
+            <dxi-item dataField="name">
+                <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                <dxi-validation-rule type="pattern" [pattern]="namePattern" message="Do not use digits in the Name"></dxi-validation-rule>
+                <dxi-validation-rule type="stringLength" [min]="3" message="Name must have at least 3 symbols"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="description">
+                <dxi-validation-rule type="required" message="Description is required"></dxi-validation-rule>
+                <dxi-validation-rule type="stringLength" [min]="3" [max]="300" message="Name must have at least 3 symbols and at most 300 symbols"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="categoryId" editorType="dxSelectBox"
+                [editorOptions]="{ items: categories, valueExpr: 'id', displayExpr: 'description',}">
+                <!-- <dxi-validation-rule type="required" message="Please select category description"></dxi-validation-rule> -->
+            </dxi-item>
+        </dxi-item>
+        <dxi-item>
+            <dx-button stylingMode="contained" text="Cancel" type="default" [width]="120" (click)="redirectToSubCategoryList()">
+            </dx-button>
+            <dx-button stylingMode="contained" text="Save" type="default" [width]="120" (click)="saveSubCategory()">
+            </dx-button>
+        </dxi-item>
+    </dx-form>
+</div>
+
+<dx-toast [visible]="toastVisible" [message]="toastMessage" [type]="success ? 'success' : 'error'" [displayTime]="1000"></dx-toast>

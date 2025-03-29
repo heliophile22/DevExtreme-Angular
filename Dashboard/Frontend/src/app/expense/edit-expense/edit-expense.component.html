@@ -1,0 +1,35 @@
+<div class="form-container">
+    <dx-form [formData]="newExpense" (onFieldDataChanged) = "formFieldDataChanged($event)">
+        <dxi-item itemType="group" caption="Edit Expense">
+            <dxi-item dataField="id" [disabled]="true"></dxi-item>
+            <dxi-item dataField="name">
+                <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                <dxi-validation-rule type="pattern" [pattern]="namePattern" message="Do not use digits in the Name"></dxi-validation-rule>
+                <dxi-validation-rule type="stringLength" [min]="3" message="Name must have at least 3 symbols"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="amount">
+                <dxi-validation-rule type="required" message="Amount is required"></dxi-validation-rule>
+                <dxi-validation-rule type="pattern" [pattern]="amountPattern" message="Please enter a valid amount"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="date" editorType="dxDateBox" [editorOptions]="{ placeholder: 'MM/DD/YYYY'}">
+                <dxi-validation-rule type="required" message="Date is required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="categoryId" editorType="dxSelectBox"
+                [editorOptions]="{ items: categories, valueExpr: 'id', displayExpr: 'description' }">
+                <!-- <dxi-validation-rule type="required" message="Please select category description"></dxi-validation-rule> -->
+            </dxi-item>
+            <dxi-item dataField="subCategoryId" editorType="dxSelectBox" 
+                [editorOptions]="{ items: subCategories, valueExpr: 'id', displayExpr: 'description', disabled: !newExpense.categoryId }">
+                <!-- <dxi-validation-rule type="required" message="Please select subcategory description"></dxi-validation-rule> -->
+            </dxi-item>
+        </dxi-item>
+        <dxi-item>
+            <dx-button stylingMode="contained" text="Cancel" type="default" [width]="120" (click)="redirectToExpenseList()">
+            </dx-button>
+            <dx-button stylingMode="contained" text="Save" type="default" [width]="120" (click)="saveExpense()">
+            </dx-button>
+        </dxi-item>
+    </dx-form>
+</div>
+
+<dx-toast [visible]="toastVisible" [message]="toastMessage" [type]="success ? 'success' : 'error'" [displayTime]="1000"></dx-toast>

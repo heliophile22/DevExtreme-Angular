@@ -1,0 +1,25 @@
+{
+    "categories": [
+    { "ID": 1, "Name": "Sample1", "Description": "Category Description1" },
+    { "ID": 2, "Name": "Sample2", "Description": "Category Description2" },
+    { "ID": 3, "Name": "Sample3", "Description": "Category Description3" },
+    { "ID": 4, "Name": "Sample4", "Description": "Category Description4" },
+    { "ID": 5, "Name": "Sample5", "Description": "Category Description5" }
+  ],
+
+  "subCategories": [
+    { "ID": 1, "Name": "Sample1", "Description": "Subcategory Description1", "CategoryId": 1 },
+    { "ID": 2, "Name": "Sample2", "Description": "Subcategory Description2", "CategoryId": 2 },
+    { "ID": 3, "Name": "Sample3", "Description": "Subcategory Description3", "CategoryId": 3 },
+    { "ID": 4, "Name": "Sample4", "Description": "Subcategory Description4", "CategoryId": 4 },
+    { "ID": 5, "Name": "Sample5", "Description": "Subcategory Description5", "CategoryId": 5 }
+  ],
+
+  "expenses": [
+    { "ID": 1, "Name": "Expense1", "Amount": 100, "Date": "3/15/2024", "CategoryId": 1, "SubCategoryId": 5 },
+    { "ID": 2, "Name": "Expense2", "Amount": 200, "Date": "3/16/2024", "CategoryId": 1, "SubCategoryId": 3 },
+    { "ID": 3, "Name": "Expense3", "Amount": 300, "Date": "3/17/2024", "CategoryId": 2, "SubCategoryId": 1 },
+    { "ID": 4, "Name": "Expense4", "Amount": 400, "Date": "3/18/2024", "CategoryId": 2, "SubCategoryId": 4 },
+    { "ID": 5, "Name": "Expense5", "Amount": 500, "Date": "3/19/2024", "CategoryId": 3, "SubCategoryId": 2 }
+  ]
+}

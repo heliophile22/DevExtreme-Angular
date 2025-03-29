@@ -1,0 +1,19 @@
+<div class="form-container">
+    <dx-form [formData]="newExpense">
+        <dxi-item itemType="group" caption="Expense Details">
+            <dxi-item dataField="name" [disabled]="true"></dxi-item>
+            <dxi-item dataField="amount" [disabled]="true"></dxi-item>
+            <dxi-item dataField="date" [disabled]="true"></dxi-item>
+            <dxi-item dataField="categoryId" editorType="dxSelectBox" [disabled]="true"
+                [editorOptions]="{ items: categories, valueExpr: 'id', displayExpr: 'description' }">
+            </dxi-item>
+            <dxi-item dataField="subCategoryId" editorType="dxSelectBox" [disabled]="true" 
+                [editorOptions]="{ items: subCategories, valueExpr: 'id', displayExpr: 'description', disabled: !newExpense.categoryId }">
+            </dxi-item>
+        </dxi-item>
+        <dxi-item>
+            <dx-button stylingMode="contained" text="Back" type="default" [width]="120" (click)="redirectToExpenseList()">
+            </dx-button>
+        </dxi-item>
+    </dx-form>
+</div>

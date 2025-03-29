@@ -1,0 +1,15 @@
+<div class="form-container">
+    <dx-form [formData]="newSubCategory">
+        <dxi-item itemType="group" caption="SubCategory Details">
+            <dxi-item dataField="name" [disabled]="true"></dxi-item>
+            <dxi-item dataField="description" [disabled]="true"></dxi-item>
+            <dxi-item dataField="categoryId" editorType="dxSelectBox"
+                [editorOptions]="{ items: categories, valueExpr: 'id', displayExpr: 'description' }" [disabled]="true">
+            </dxi-item>
+        </dxi-item>
+        <dxi-item>
+            <dx-button stylingMode="contained" text="Back" type="default" [width]="120" (click)="redirectToSubCategoryList()">
+            </dx-button>
+        </dxi-item>
+    </dx-form>
+</div>

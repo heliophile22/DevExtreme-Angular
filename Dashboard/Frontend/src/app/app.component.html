@@ -1,0 +1,11 @@
+<div class="container-fliud">
+  <app-header (sidebarToggled)="sidebarStatus = $event;"></app-header> 
+  
+  <main>
+    <app-sidebar [sidebarStatus]="sidebarStatus" [ngClass]="{'app-side-nav-open': sidebarStatus}"></app-sidebar>
+
+    <div class="display-area p-3" [ngClass]="{'display-area-shrink': sidebarStatus}">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

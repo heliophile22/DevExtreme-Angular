@@ -1,0 +1,48 @@
+<div class="long-title">
+    <h2>Category List</h2>
+</div>
+<div id="data-grid-demo">
+    <dx-data-grid id="gridContainer" [dataSource]="dataSource" keyExpr="id" [showBorders]="true">
+
+        <!-- <dxo-selection mode="multiple" [deferred]="true"></dxo-selection> -->
+        <dxo-paging [pageSize]="4"> </dxo-paging>
+
+        <dxo-editing mode="row" [allowAdding]="true" [allowDeleting]="true" [allowUpdating]="true" [useIcons]="true">
+        </dxo-editing>
+
+        <dxi-column dataField="name"></dxi-column>
+        <dxi-column dataField="description"></dxi-column>
+
+        <dxi-column dataField="Actions" type="buttons" [width]="10+'%'">
+            <dxi-button text="edit" icon="fa-regular fa-pen-to-square" hint="Edit" [onClick]="handleEditButton"></dxi-button>
+            <!-- <dxi-button text="view" icon="fa-regular fa-eye" hint="View" [onClick]="handleViewButton"></dxi-button> -->
+            <dxi-button text="delete" icon="fa-regular fa-trash-can" hint="Delete" [onClick]="showDeleteDialog"></dxi-button>
+        </dxi-column>
+
+        <dxo-toolbar>
+            <dxi-item>
+                <dx-button text="Add Category" (onClick)="handleAddButton()"></dx-button>
+            </dxi-item>
+        </dxo-toolbar>
+    </dx-data-grid>
+</div>
+
+<dx-popup [visible]="popupVisible" [width]="380" [height]="180" [showTitle]="true" title="Delete Confirmation"
+    [dragEnabled]="false" [hideOnOutsideClick]="false" [showCloseButton]="false">
+
+    <p>Are you sure you want to delete this category?</p>
+    <div>
+        <dx-button stylingMode="contained" text="Yes" type="default" (onClick)="confirmDelete()" class="button-margin" [width]="65"></dx-button>
+        <dx-button stylingMode="contained" text="No" type="default" (onClick)="cancelDelete()" [width]="65"></dx-button>
+    </div>
+</dx-popup>
+
+<dx-toast [visible]="toastVisible" [message]="toastMessage" [type]="success ? 'success' : 'error'" [displayTime]="1000"></dx-toast>
+     
+
+
+<!--<dxi-column [allowSearch]="false" dataField="actions" type="buttons" [width]="10+'%'">
+    <dxi-button icon="fa fa-eye" hint="View" *ngIf="allowView" [onClick]="viewCase"></dxi-button>
+    <dxi-button icon="edit" hint="Edit" *ngIf="allowEdit && !isReadOnly" [onClick]="editCase"></dxi-button>
+    <dxi-button icon="trash" hint="Delete" *ngIf="allowDelete && !isReadOnly" [onClick]="deleteCase"></dxi-button>
+</dxi-column> -->
